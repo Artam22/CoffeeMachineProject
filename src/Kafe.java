@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Kafe {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         KahveHazırla kahve = new KahveHazırla();
 
