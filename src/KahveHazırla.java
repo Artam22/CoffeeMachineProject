@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class KahveHazırla {
     Scanner oku = new Scanner(System.in);
-    Scanner okuStr=new Scanner(System.in);
 
     public KahveHazırla() {
     }
@@ -46,6 +45,7 @@ public class KahveHazırla {
                     " \n3. Large"+
                     " \n4. XLarge");
             size = oku.nextInt();
+            oku.nextLine();
 
 
             switch (size){
@@ -81,14 +81,14 @@ public class KahveHazırla {
 
         do {
             System.out.print("\nSüt eklemek ister misiniz: ");
-            sut = okuStr.nextLine();
+            sut = oku.nextLine();
         } while (!sut.equalsIgnoreCase("evet") && !sut.equalsIgnoreCase("hayır"));
 
         if (sut.equalsIgnoreCase("evet")) {
             System.out.println("Süt ekleniyor");
             for (int i = 0; i < 20; i++) {
-                Thread.sleep(100);
                 System.out.print(">");
+                Thread.sleep(100);
             }
         }else if (sut.equalsIgnoreCase("hayır")) {
             System.out.println("Süt eklenmiyor");
@@ -98,7 +98,7 @@ public class KahveHazırla {
 
         do {
             System.out.print("\nŞeker ister misiniz?(Evet veya Hayır olarak cevaplayınız) ");
-            seker = okuStr.nextLine();
+            seker = oku.nextLine();
         } while (!seker.equalsIgnoreCase("evet") && !seker.equalsIgnoreCase("hayır"));
 
         if (seker.equalsIgnoreCase("evet")) {
@@ -107,22 +107,29 @@ public class KahveHazırla {
             oku.nextLine();
             System.out.println(kacSeker + " şeker ekleniyor");
             for (int i = 0; i < 20; i++) {
-                Thread.sleep(100);
                 System.out.print(">");
+                Thread.sleep(100);
             }
         } else if (seker.equalsIgnoreCase("hayır")) {
             System.out.println("Şeker eklenmiyor");
             System.out.println();
         }
+        for (Kahveler k : Kahveler.values()){
+            if (k.ordinal() == choice ){
+                for (Boyutlar b : Boyutlar.values()){
+                    if (b.ordinal() == choice)
+                        System.out.println(b.isim +" "+ k.isim +" kahveniz hazırlanıyor...");
+                }
 
-        System.out.println("\nKahveniz hazırlanıyor...");
+            }
+        }
+
         for (int i = 0; i < 20; i++) {
-            Thread.sleep(100);
             System.out.print(">");
+            Thread.sleep(100);
 
         }
         System.out.println("\nKahveniz hazır Afiyet Olsun!.....");
+
     }
-
-
 }
