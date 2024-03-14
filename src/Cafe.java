@@ -33,7 +33,7 @@ public class Cafe {
     }
 
 
-    // menu() method
+    // menu() method for customer
     private static void menu(Scanner scanner, KahveHazırla kahve) throws InterruptedException {
         int choice;
 
