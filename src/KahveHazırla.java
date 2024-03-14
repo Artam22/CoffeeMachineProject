@@ -1,42 +1,47 @@
 import java.util.Scanner;
 
+
+// COFFEE PREPARED IN THIS CLASS
 public class KahveHazırla {
     Scanner oku = new Scanner(System.in);
 
-    public KahveHazırla() {
-    }
+    public void PrepareCoffee(int choice) throws InterruptedException {
 
-    public void kahveyiHazırla(int choice) throws InterruptedException {
+        // CUSTOMER CHOICE
         switch (choice){
             case 1:
-                System.out.println(Kahveler.AMERICANO + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.AMERICANO + " seçtiniz.");break;
             case 2:
-                System.out.println(Kahveler.ESPRESSO + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.ESPRESSO + " seçtiniz.");break;
             case 3:
-                System.out.println(Kahveler.CAPPUCINO + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.CAPPUCINO + " seçtiniz.");break;
             case 4:
-                System.out.println(Kahveler.LATTE + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.LATTE + " seçtiniz.");break;
             case 5:
-                System.out.println(Kahveler.MOCHA + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.MOCHA + " seçtiniz.");break;
             case 6:
-                System.out.println(Kahveler.MACCHIATO + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.MACCHIATO + " seçtiniz.");break;
             case 7:
-                System.out.println(Kahveler.AFFOGATO + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.AFFOGATO + " seçtiniz.");break;
             case 8:
-                System.out.println(Kahveler.BUZLU_KAHVE + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.BUZLU_KAHVE + " seçtiniz.");break;
             case 9:
-                System.out.println(Kahveler.FRAPPUCCINO + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.FRAPPUCCINO + " seçtiniz.");break;
             case 10:
-                System.out.println(Kahveler.IRISH + " seçtiniz.");break;
+                System.out.println(CoffeeOptions.IRISH + " seçtiniz.");break;
             default:
                 System.out.println("Geçersiz Kahve seçtiniz");
         }
 
-        if (choice == Kahveler.FRAPPUCCINO.ordinal() || choice == Kahveler.BUZLU_KAHVE.ordinal()) {
+
+        // IF IT'S A COLD COFFEE PRINT THE SENTENCE > "The best way to cool off on a hot summer day... Excellent decision!"
+        if (choice == CoffeeOptions.FRAPPUCCINO.ordinal() || choice == CoffeeOptions.BUZLU_KAHVE.ordinal()) {
             System.out.println("Sıcak bir yaz gününde serinlemenin en iyi yolu… Mükemmel karar!");
         }
         int size;
         boolean isTrue;
+
+        // ASK FOR COFFEE SIZE
         do {
             isTrue = true;
             System.out.println("- Lütfen aşağıdaki menüden kahvenizin boyutunu (size) seçiniz…"+
@@ -48,23 +53,24 @@ public class KahveHazırla {
             oku.nextLine();
 
 
+            // PRINT: PREPARING + {SIZE} + COFFEE
             switch (size){
-                case 1:System.out.println(Boyutlar.SMALL+" kahveniz hazırlanıyor…");
+                case 1:System.out.println(Size.SMALL+" kahveniz hazırlanıyor…");
                     for (int i = 0; i < 20; i++) {
                         Thread.sleep(100);
                         System.out.print(">");
                     }break;
-                case 2:System.out.println(Boyutlar.MEDIUM+" kahveniz hazırlanıyor…");
+                case 2:System.out.println(Size.MEDIUM+" kahveniz hazırlanıyor…");
                     for (int i = 0; i < 20; i++) {
                         Thread.sleep(100);
                         System.out.print(">");
                     }break;
-                case 3:System.out.println(Boyutlar.LARGE+" kahveniz hazırlanıyor…");
+                case 3:System.out.println(Size.LARGE+" kahveniz hazırlanıyor…");
                     for (int i = 0; i < 20; i++) {
                         Thread.sleep(100);
                         System.out.print(">");
                     }break;
-                case 4:System.out.println(Boyutlar.XLARGE+" kahveniz hazırlanıyor…");
+                case 4:System.out.println(Size.XLARGE+" kahveniz hazırlanıyor…");
                     for (int i = 0; i < 20; i++) {
                         Thread.sleep(100);
                         System.out.print(">");
@@ -79,6 +85,7 @@ public class KahveHazırla {
         String sut;
         int kacSeker;
 
+        // ASK CUSTOMER IF THEY WANT MILK
         do {
             System.out.print("\nSüt eklemek ister misiniz: ");
             sut = oku.nextLine();
@@ -96,6 +103,7 @@ public class KahveHazırla {
         }
         String seker;
 
+        // ASK CUSTOMER IF THEY WANT SUGAR
         do {
             System.out.print("\nŞeker ister misiniz?(Evet veya Hayır olarak cevaplayınız) ");
             seker = oku.nextLine();
@@ -114,9 +122,11 @@ public class KahveHazırla {
             System.out.println("Şeker eklenmiyor");
             System.out.println();
         }
-        for (Kahveler k : Kahveler.values()){
+
+        // PRINT COFFEE NAME AND SIZE
+        for (CoffeeOptions k : CoffeeOptions.values()){
             if (k.ordinal() == choice ){
-                for (Boyutlar b : Boyutlar.values()){
+                for (Size b : Size.values()){
                     if (b.ordinal() == choice)
                         System.out.println(b.isim +" "+ k.isim +" kahveniz hazırlanıyor...");
                 }
@@ -124,6 +134,7 @@ public class KahveHazırla {
             }
         }
 
+        // FOR VISUAL EFFECT
         for (int i = 0; i < 20; i++) {
             System.out.print(">");
             Thread.sleep(100);

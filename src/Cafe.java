@@ -1,12 +1,19 @@
 import java.util.Scanner;
 
-public class Kafe {
+public class Cafe {
     public static void main(String[] args) throws InterruptedException {
+
+        // Declaring necessary objects
         Scanner scanner = new Scanner(System.in);
         KahveHazırla kahve = new KahveHazırla();
 
+
+
+        // Show menu to the Customer
         menu(scanner, kahve);
 
+
+        // Ask for new coffee after the order
         boolean isTrue = true;
         do {
             System.out.print("Yeni bir kahve ister misiniz?(Evet/Hayır): ");
@@ -25,6 +32,8 @@ public class Kafe {
 
     }
 
+
+    // menu() method
     private static void menu(Scanner scanner, KahveHazırla kahve) throws InterruptedException {
         int choice;
 
@@ -54,7 +63,7 @@ public class Kafe {
             case 8:
             case 9:
             case 10:
-                kahve.kahveyiHazırla(choice);
+                kahve.PrepareCoffee(choice);
                 break;
             case 0:
                 System.out.println("Çıkış yapılıyor...");

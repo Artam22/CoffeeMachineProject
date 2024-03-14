@@ -1,9 +1,9 @@
-public enum Boyutlar {
+public enum Size {
     Udn(""),SMALL("Small"), MEDIUM("Medium"), LARGE("Large"), XLARGE("XLarge");
 
     final String isim;
 
-    Boyutlar(String isim) {
+    Size(String isim) {
         this.isim = isim;
     }
 }
